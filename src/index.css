@@ -1,13 +1,76 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.box{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap
+}
+.material-icons{
+  font-size: 2.4em;
+  cursor: pointer;
+}
+.card{
+  width: 300px;
+}
+.card .card-image .card-title{
+  color: black;
+  font-weight: 400
+}
+.cart{
+  margin-top:40px;
+}
+.collection .collection-item{
+  display: flex;
+}
+.collection-item.avatar .title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ee6e73;
+  display: block;
+  margin-bottom: 20px;
+  
+}
+.collection .collection-item img{
+  width: 150px;
+  margin-right: 25px;
+}
+.item-desc{
+  align-self:center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+footer {
+  /* position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 10px 20px;
+  background: #ee6e73;
+  box-shadow: 0 -5px 5px -5px #333;
+  color: white; */
+  text-align: center;
+  bottom:0;
+  width:100%;
+  height:56px;   /* Height of the footer */
+  color: white;
+  background: #ee6e73;
+  box-shadow: 0 -5px 5px -5px #333;
+  padding:20px;
+}
+
+.page-content {
+  padding: 50px 20px;
+  min-height: calc(100vh - 124px);
+}
+
+.display-flex{
+  display: flex ;
+  flex-direction: column;
+}
+
+.flex-direction-row{
+  flex-direction: row !important;
+}
+
+.margin-top{
+  margin-top: 15px;
 }
