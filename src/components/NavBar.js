@@ -1,10 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Badge from '@material-ui/core/Badge';
-import Box from '@material-ui/core/Box';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+
+
+import { connect } from 'react-redux'
+
+
+const mapStateToProps = state => {
+  return {
+           addedItems: state.addedItems
+          };
+}
+
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1
+  },
+}));
+
 
 const StyledBadge1 = withStyles(theme => ({
     badge: {
@@ -14,54 +39,29 @@ const StyledBadge1 = withStyles(theme => ({
     },
   }))(Badge);
   
-  const StyledBadge2 = withStyles(theme => ({
-    badge: {
-      backgroundColor: '#44b700',
-      boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-      '&::after': {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        borderRadius: '50%',
-        animation: '$ripple 1.2s infinite ease-in-out',
-        border: '1px solid #44b700',
-        content: '""',
-      },
-    },
-    '@keyframes ripple': {
-      '0%': {
-        transform: 'scale(.8)',
-        opacity: 1,
-      },
-      '100%': {
-        transform: 'scale(2.4)',
-        opacity: 0,
-      },
-    },
-  }))(Badge);
-  
-
- const Navbar = ()=>{
+ const Navbar = ({addedItems})=>{
+  const classes = useStyles();
     return(
-            <nav className="nav-wrapper">
-                <div className="container">
-                    <Link to="/" className="brand-logo">Angara Jewels</Link>
-                    
-                    <ul className="right">
-                        <li><Link to="/cart">My Cart</Link></li>
-                        <li><Link to="/cart">
+      <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar className="nav-style">
+          <Typography variant="h6" className={classes.title}>
+            <Link to="/">Angara Jewels</Link>
+          </Typography>
+          <ul className="ul-list">
+                        <li>
+                          <Link to="/cart">
                             <i>
-                            <StyledBadge1 badgeContent={4}>
+                            <StyledBadge1 badgeContent={addedItems.length}>
                                 <ShoppingCartIcon />
                             </StyledBadge1>
                             </i>
-                            </Link></li>
-                    </ul>
-                </div>
-            </nav>  
+                          </Link></li>
+         </ul>
+        </Toolbar>
+      </AppBar>
+    </div>
     )
 }
 
-export default Navbar;
+export default connect(mapStateToProps)(Navbar);

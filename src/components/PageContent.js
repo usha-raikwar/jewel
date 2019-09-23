@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
 import { Select, InputLabel, FormControl , MenuItem, Grid,
          FormLabel, FormControlLabel, RadioGroup, Radio, Button } from '@material-ui/core';
 import { sizeUpdate, priceUpdate, addToCart, gemStoneQualityUpdate, caratWeightUpdate, metalTypeUpdate } from '../actions';
@@ -90,9 +89,7 @@ const mapDispatchToProps = dispatch => {
         handleAddToCart = (event) => {
                 event.preventDefault();
                 let items = [];
-                console.log("props added items before : " + this.props.addedItems)
                 items.push(...this.props.addedItems);
-                console.log("props added items before : " + this.props.addedItems)
                 items.push(this.props.userSelection);
                 this.props.addToCart(items);              
         }

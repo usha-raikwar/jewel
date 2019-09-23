@@ -74,3 +74,15 @@ footer {
 .margin-top{
   margin-top: 15px;
 }
+
+.nav-style {
+  background: #ee6e73;
+}
+
+.nav-style a {
+  color: white;
+}
+
+.ul-list {
+  list-style-type: none;
+}
