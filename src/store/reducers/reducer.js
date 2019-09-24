@@ -6,7 +6,7 @@ const initialState = {
   caratWeight: '1.1',
   metalType: 'Rose Gold',
   ringSize: 20,
-  image: '1.webp',
+  image: '1.png',
   price: '1000'
  },
  addedItems: [],
@@ -551,11 +551,10 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   let newState = {};
-  debugger;
+  //debugger;
   switch(action.type){
     case C.ADD_TO_CART:
     let addedItems = [...action.payload.addedItems];
-    console.log("Added Items before  in reducer " + addedItems);
     newState = Object.assign({}, state, {addedItems: addedItems} );
     break;
     case C.PRICE_UPDATE:
@@ -569,8 +568,6 @@ const rootReducer = (state = initialState, action) => {
        newState = state;
     break;
   }
-  console.log(newState.userSelection);
-  console.log("Added items:" + JSON.stringify(newState.addedItems));
   return newState;
 }
 

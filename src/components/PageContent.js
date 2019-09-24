@@ -2,9 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Select, InputLabel, FormControl , MenuItem, Grid,
          FormLabel, FormControlLabel, RadioGroup, Radio, Button } from '@material-ui/core';
-import { sizeUpdate, priceUpdate, addToCart, gemStoneQualityUpdate, caratWeightUpdate, metalTypeUpdate } from '../actions';
+import { sizeUpdate, priceUpdate, addToCart, gemStoneQualityUpdate,
+caratWeightUpdate, metalTypeUpdate } from '../actions';
 
 const images = require.context('../../public/images', true);
+
+const style = {
+        margin: "15px"
+}
 
 const mapStateToProps = state => {
         return {
@@ -29,17 +34,14 @@ const mapDispatchToProps = dispatch => {
 }
 
  class PageContent extends React.Component {
-        //classes = useStyles();
 
         getNewUserSelectionDetails = (gem, carat, metal) => {
                 //debugger;
                 let newUserDetail = this.props.productDetails.filter((productDetail) => {
-                        //console.log(productDetail);
                         return (productDetail.GemStone === gem &&
                         productDetail.CaretWeight === parseFloat(carat) &&
                         productDetail.MetalType === metal)
                 }) ;
-                console.log("UserDetail : " + newUserDetail);
                 return newUserDetail;
         }
 
@@ -54,7 +56,7 @@ const mapDispatchToProps = dispatch => {
                         gemStones: userSelectionDetails[0].GemStone,
                         caratWeight: userSelectionDetails[0].CaretWeight,
                         metalType: userSelectionDetails[0].MetalType,
-                        image: `${userSelectionDetails[0].ID}.webp`,
+                        image: `${userSelectionDetails[0].ID}.png`,
                         price: userSelectionDetails[0].Price
                        }
                 this.props.priceUpdate(userSelection);
@@ -63,12 +65,12 @@ const mapDispatchToProps = dispatch => {
                 event.preventDefault();
                 let userSelectionDetails = this.getNewUserSelectionDetails(this.props.userSelection.gemStones, event.target.value, this.props.userSelection.metalType);
                 //debugger;
-                //Yet to add image: '1.webp',
+                //Yet to add image: '1.png',
                 let userSelection = {
                         gemStones: userSelectionDetails[0].GemStone,
                         caratWeight: userSelectionDetails[0].CaretWeight,
                         metalType: userSelectionDetails[0].MetalType,
-                        image: `${userSelectionDetails[0].ID}.webp`,
+                        image: `${userSelectionDetails[0].ID}.png`,
                         price: userSelectionDetails[0].Price
                        }
                 this.props.priceUpdate(userSelection);
@@ -80,7 +82,7 @@ const mapDispatchToProps = dispatch => {
                         gemStones: userSelectionDetails[0].GemStone,
                         caratWeight: userSelectionDetails[0].CaretWeight,
                         metalType: userSelectionDetails[0].MetalType,
-                        image: `${userSelectionDetails[0].ID}.webp`,
+                        image: `${userSelectionDetails[0].ID}.png`,
                         price: userSelectionDetails[0].Price
                        }
                 this.props.priceUpdate(userSelection);
@@ -160,7 +162,7 @@ const mapDispatchToProps = dispatch => {
                                         })}
                                         </Select>
                                 </FormControl>     
-                                <Grid item xs={12} sm={6} className="margin-top">
+                                <Grid item xs={12} sm={6} style={style}>
                                         <Button variant="contained" color="secondary" onClick={this.handleAddToCart}>
                                                 Add to Cart
                                         </Button>

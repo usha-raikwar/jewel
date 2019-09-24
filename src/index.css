@@ -37,16 +37,6 @@
 }
 
 footer {
-  /* position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  text-align: center;
-  padding: 10px 20px;
-  background: #ee6e73;
-  box-shadow: 0 -5px 5px -5px #333;
-  color: white; */
   text-align: center;
   bottom:0;
   width:100%;
@@ -71,8 +61,8 @@ footer {
   flex-direction: row !important;
 }
 
-.margin-top{
-  margin-top: 15px;
+.grid-margin{
+  margin: 15px;
 }
 
 .nav-style {
@@ -85,4 +75,10 @@ footer {
 
 .ul-list {
   list-style-type: none;
+}
+
+.grid-content {
+  /* text-align: justify; */
+  color: white;
+  background: #19c7d3;
 }

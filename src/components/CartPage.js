@@ -18,11 +18,10 @@ const mapDispatchToProps = dispatch => {
 
 class CartPage extends React.Component {
  render(){
-  debugger;
-  console.log("Added : " + JSON.stringify(this.props.addedItems));
-  //const { addedItems } = this.props;
+  //debugger;
   return (
    <div className="page-content">
+   {<h3> Added Items: </h3>}
    {this.props.addedItems.length > 0 ?
      this.props.addedItems.map(((product, i)=>
       <Product

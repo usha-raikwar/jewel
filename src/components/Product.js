@@ -1,16 +1,35 @@
 import React from 'react';
+import { Paper, Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+const images = require.context('../../public/images', true);
 
-const Product = (props) => (
- <div className="page-content">
-     <h1> Added Items: </h1>
-     <h3>{props.item.gemStones}</h3>
-     <h3>{props.item.caratWeight}</h3>
-     <h3>{props.item.metalType}</h3>
-     <h3>{props.item.ringSize}</h3>
-     <h3>{props.item.price}</h3>
-     <br/>
-     <h3> That's Wonderful! </h3>
-    </div>
-);
+
+const useStyles = makeStyles(theme => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+  }));
+
+const Product = (props) => {
+    const classes = useStyles();
+
+    return (
+        <div>
+           <Grid container spacing={3}>
+           <Grid item md={4} justify-content="center">
+               <img src={images(`./${props.item.image}`)} alt="Ring" height="50%" width="50%"/>       
+           </Grid>
+           <Grid item md={4}>
+                <Paper className={classes.paper}><span><b>Price: </b></span>${props.item.price}</Paper>    
+           </Grid>
+           </Grid>
+       </div>
+       );
+}
 
 export default Product;
