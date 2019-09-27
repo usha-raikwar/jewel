@@ -46,7 +46,7 @@ const StyledBadge1 = withStyles(theme => ({
       <AppBar position="static">
         <Toolbar className="nav-style">
           <Typography variant="h6" className={classes.title}>
-            <Link to="/">Angara Jewels</Link>
+            <Link to="/">XYZ Jewels</Link>
           </Typography>
           <ul className="ul-list">
                         <li>
